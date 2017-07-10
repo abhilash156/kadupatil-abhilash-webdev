@@ -1,8 +1,12 @@
-# web-dev-template
+# **CS5610 : Web Development**
 
-1. git clone https://github.com/jannunzi/web-dev-template.git
-1. cd web-dev-template
-1. npm install
-1. mongod
-1. node server.js
-1. browse to localhost:3000
+### This repository contains the assignment solutions to CS5610 Summer 2 Course under Prof. Jose Annunziato (@jannunzi)
+
+## **Important Links:**
+
+### _Hosting_ : https://kadupatil-abhilash-webdev.herokuapp.com/
+### _Project_ : https://kadupatil-abhilash-webdev.herokuapp.com/project
+### _Assignment_ : https://kadupatil-abhilash-webdev.herokuapp.com/assignment
+
+#### I am graduate student at **Northeastern University**
+#### Previously worked at ContentSphere Technologies, Pune
