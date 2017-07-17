@@ -9,3 +9,44 @@
 .heading {
     text-align: center;
 }
+
+.navbar-default {
+    background-color: #337ab7;
+    border-color: #FFFFFF;
+    color: #FFFFFF;
+}
+
+#header{
+    margin-top: 12px;
+}
+
+.delta-margin-top{
+    margin-top: 12px;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+.glyphicon {
+    color: #FFFFFF;
+    padding: 5px;
+}
+
+.glyphicon-cog {
+    color: inherit;
+}
+
+
+.accent-text {
+    color: #FFFFFF;
+    font-size: 18px;
+}
+
+.delta-divider {
+    padding: 5px;
+}
+
+.list-group-item {
+    border: none;
+}
