@@ -35,13 +35,16 @@ body {
 
 .glyphicon {
     color: #FFFFFF;
-    padding: 5px;
+    padding-top: 5px;
 }
 
 .glyphicon-cog {
     color: inherit;
 }
 
+.glyphicon-align-justify {
+    color: #000000;
+}
 
 .accent-text {
     color: #FFFFFF;
@@ -54,8 +57,17 @@ body {
 
 .list-group-item {
     border: none;
+    padding: 0;
 }
 
 .delta-vertical-separator {
     border-right: solid 1px;
+}
+
+.delta-widget-header {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.delta-background-white {
+    background-color: #FFFFFF;
 }
