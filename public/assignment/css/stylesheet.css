@@ -71,3 +71,13 @@ body {
 .delta-background-white {
     background-color: #FFFFFF;
 }
+
+.delta-widget > .delta-widget-toolbar {
+    position: absolute;
+    right: 15px;
+    background-color: #FFFFFF;
+}
+
+.delta-widget > img {
+    width: 100%;
+}
