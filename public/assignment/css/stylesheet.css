@@ -16,6 +16,11 @@
     color: #FFFFFF;
 }
 
+body {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
 #header{
     margin-top: 12px;
 }
@@ -49,4 +54,8 @@
 
 .list-group-item {
     border: none;
+}
+
+.delta-vertical-separator {
+    border-right: solid 1px;
 }
