@@ -57,7 +57,6 @@ body {
 
 .list-group-item {
     border: none;
-    padding: 0;
 }
 
 .delta-vertical-separator {
@@ -79,5 +78,9 @@ body {
 }
 
 .delta-widget > img {
+    width: 100%;
+}
+
+.delta-iframe {
     width: 100%;
 }
