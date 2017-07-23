@@ -1,17 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="WBApp">
+<html lang="en" ng-app="WebAppMaker">
 <head>
-    <title>Login</title>
-    <script src="../vendor/angular/angular.js"></script>
+    <title>CS5610 Web Application</title>
+    <!--<script src="../vendor/angular/angular.js"></script>-->
+    <link href="../vendor/css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>
     <script src="app.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="config.js"></script>
+    <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+
     <!--link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">-->
     <link href="css/stylesheet.css" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 </head>
 <body>
-<div class="container delta-login">
-    <a class="btn btn-lg btn-danger btn-block" href="user/login.html">Do Not Enter</a>
+
+<div ng-view>
 </div>
 </body>

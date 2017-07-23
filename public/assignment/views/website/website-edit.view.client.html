@@ -1,93 +1,86 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>CS5610 Web Application</title>
-    <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">-->
-    <!--<link href="../../vendor/css/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">-->
-    <link href="../../vendor/css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/stylesheet.css" rel="stylesheet">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-</head>
-<body>
 <div class="delta-content">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="row delta-margin-top">
                 <div class="col-xs-1 pull-left">
-                    <a href="website-list.html"><span class="glyphicon glyphicon-chevron-left pull-left"></span></a>
+                    <a href="website-list.view.client.html"><span class="glyphicon glyphicon-chevron-left pull-left"></span></a>
                 </div>
                 <div class="visible-lg col-lg-1">
                     <p class="accent-text pull-left"><b>Websites</b></p>
                 </div>
                 <div class="visible-lg col-lg-1">
-                    <a href="website-new.html"><span class="glyphicon glyphicon-plus pull-right"></span></a>
+                    <a href="website-new.view.client.html"><span class="glyphicon glyphicon-plus pull-right"></span></a>
                 </div>
 
                 <div class="col-lg-2">
-                    <p class="accent-text pull-left"><b>New Website</b></p>
+                    <p class="accent-text pull-left"><b>Edit Website</b></p>
                 </div>
 
                 <div class="col-lg-1 pull-right">
-                    <a href="website-list.html"><span class="glyphicon glyphicon-ok pull-right"></span></a>
+                    <a href="website-list.view.client.html"><span class="glyphicon glyphicon-ok pull-right"></span></a>
                 </div>
             </div>
+
         </div>
     </nav>
 
     <div class="container-fluid">
         <div class="row">
-            <div class="visible-lg col-lg-3">
+            <div class="visible-lg col-lg-3 delta-split-view-left">
                 <ul class="list-group">
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-xs-10">
-                                <a href="../page/page-list.html"><b>Address Book App</b></a>
+                                <a href="#!/user/{{uid}}/website/{{wid}}/page"><b>Address Book App</b></a>
                             </div>
                             <div class="col-xs-2">
-                                <a href="website-edit.html"><span class="glyphicon glyphicon-cog pull-right"></span></a>
+                                <a href="website-edit.view.client.html"><span class="glyphicon glyphicon-cog pull-right"></span></a>
                             </div>
                         </div>
                     </li>
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-xs-10">
-                                <a href="../page/page-list.html"><b>Blogger</b></a>
+                                <a href="#!/user/{{uid}}/website/{{wid}}/page"><b>Blogger</b></a>
                             </div>
                             <div class="col-xs-2">
-                                <a href="website-edit.html"><span class="glyphicon glyphicon-cog pull-right"></span></a>
+                                <a href="website-edit.view.client.html"><span class="glyphicon glyphicon-cog pull-right"></span></a>
                             </div>
                         </div>
                     </li>
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-xs-10">
-                                <a href="../page/page-list.html"><b>Blogging App</b></a>
+                                <a href="#!/user/{{uid}}/website/{{wid}}/page"><b>Blogging App</b></a>
                             </div>
                             <div class="col-xs-2">
-                                <a href="website-edit.html"><span class="glyphicon glyphicon-cog pull-right"></span></a>
+                                <a href="website-edit.view.client.html"><span class="glyphicon glyphicon-cog pull-right"></span></a>
                             </div>
                         </div>
                     </li>
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-xs-10">
-                                <a href="../page/page-list.html"><b>Script Testing App</b></a>
+                                <a href="#!/user/{{uid}}/website/{{wid}}/page"><b>Script Testing App</b></a>
                             </div>
                             <div class="col-xs-2">
-                                <a href="website-edit.html"><span class="glyphicon glyphicon-cog pull-right"></span></a>
+                                <a href="website-edit.view.client.html"><span class="glyphicon glyphicon-cog pull-right"></span></a>
                             </div>
                         </div>
                     </li>
                 </ul>
             </div>
-            <div class="col-xs-12 col-lg-9">
+            <div class="col-xs-12 col-lg-9 delta-split-view-right">
                 <label for="name">Name</label>
-                <input name="Name" placeholder="Name" class="form-control" id="name"/>
+                <input name="Name" placeholder="Blogger" class="form-control" id="name"/>
 
                 <label for="description">Description</label>
-                <textarea rows="5" placeholder="Description" class="form-control" id="description"></textarea>
+                <textarea rows="5" placeholder="Blogger is a blog-publishing service that allows multi-user
+                blogs with time-stamped entries. It was developed by Pyra Labs, which was bought by Google in 2003.
+                Generally, the blogs are hosted by Google at a subdomain of blogspot.com.
+                Blogs can also be hosted in the registered custom domain of the blogger (like www.example.com).
+                A user can have up to 100 blogs per account." class="form-control" id="description"></textarea>
+                <a class="btn btn-default btn-danger btn-block" href="website-list.view.client.html" >Delete</a>
             </div>
         </div>
     </div>
@@ -95,11 +88,9 @@
         <div class="container-fluid">
             <div class="row delta-margin-top">
                 <div class="col-lg-1 col-xs-2 pull-right">
-                    <a href="../user/profile.html"><span class="glyphicon glyphicon-user pull-right"></span></a>
+                    <a href="#!/user/{{uid}}"><span class="glyphicon glyphicon-user pull-right"></span></a>
                 </div>
             </div>
         </div>
     </nav>
 </div>
-</body>
-</html>
