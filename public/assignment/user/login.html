@@ -1,20 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="WBApp">
 <head>
     <title>Login</title>
+    <script src="../../vendor/angular/angular.js"></script>
+    <script src="../app.js"></script>
     <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
     <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">-->
+
     <link href="../../vendor/css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/stylesheet.css" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 </head>
 <body>
-<div class="container delta-login">
-    <h2 class="heading">Login</h2>
-    <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-    <a class="btn btn-primary btn-block" href="profile.html">Login</a>
-    <a class="btn btn-success btn-block" type="submit" href="register.html">Register</a>
+<div class="container-fluid">
+    <div class="delta-login" ng-controller="loginController">
+        <div class="visible-lg visible-md col-lg-2 col-md-1"></div>
+        <div class="col-xs-12 col-lg-8 col-md-10">
+            <h2 class="heading">Login</h2>
+            <input id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <a class="btn btn-primary btn-block" href="profile.html">Login</a>
+            <a class="btn btn-success btn-block" type="submit" href="register.html">Register</a>
+        </div>
+        <div class="visible-lg visible-md col-lg-2 col-md-1"></div>
+    </div>
 </div>
 </body>
