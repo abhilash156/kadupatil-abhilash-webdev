@@ -1,16 +1,17 @@
-(function() {
+(function () {
     angular.module("WebAppMaker").config(Config);
+
     function Config($routeProvider) {
         $routeProvider
             .when("/",
-                { templateUrl: "views/user/login.view.client.html"})
+                {templateUrl: "views/user/login.view.client.html"})
             .when("/login",
-                { templateUrl: "views/user/login.view.client.html"})
-            .when("/default", 
-                { templateUrl: "views/user/login.view.client.html"})
-            .when("/register", 
-                { templateUrl: "views/user/register.view.client.html"})
-            .when("/user/:uid", 
+                {templateUrl: "views/user/login.view.client.html"})
+            .when("/default",
+                {templateUrl: "views/user/login.view.client.html"})
+            .when("/register",
+                {templateUrl: "views/user/register.view.client.html"})
+            .when("/user/:uid",
                 {templateUrl: "views/user/profile.view.client.html"})
             .when("/user/:uid/website",
                 {templateUrl: "views/website/website-list.view.client.html"})

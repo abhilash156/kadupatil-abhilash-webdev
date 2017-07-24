@@ -1,4 +1,4 @@
-<div class="delta-content">
+<div class="delta-content" ng-controller="profileController">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="row delta-margin-top">
@@ -14,13 +14,13 @@
     <div class="container">
         <h2 class="heading">Profile</h2>
         <label>Username</label>
-        <input class="form-control" placeholder="Username" value="IronMan">
+        <input class="form-control" placeholder="Username" ng-model="user.username">
         <label>Email</label>
-        <input type="email" class="form-control" placeholder="Email" value="tony@starkindustries.com"/>
+        <input type="email" ng-model="user.email" class="form-control" placeholder="Email"/>
         <label>First Name</label>
-        <input class="form-control" placeholder="First Name" value="Tony"/>
+        <input class="form-control" ng-model="user.firstName" placeholder="First Name"/>
         <label>Last Name</label>
-        <input class="form-control" placeholder="Last Name" value="Stark"/>
+        <input class="form-control" ng-model="user.lastName" placeholder="Last Name"/>
         <a class="btn btn-primary btn-block" href="#!/user/{{uid}}/website"><b>Website</b></a>
         <a class="btn btn-danger btn-block" href="#!/login"><b>Logout</b></a>
     </div>
