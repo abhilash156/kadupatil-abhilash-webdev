@@ -23,12 +23,33 @@
         }
 
         function findUserById(userId) {
+            for (var u in users) {
+                var _user = users[u];
+                if (_user._id === userId) {
+                    return _user;
+                }
+            }
+            return null;
         }
 
         function findUserByUsername(username) {
+            for (var u in users) {
+                var _user = users[u];
+                if (_user.username === username) {
+                    return _user;
+                }
+            }
+            return null;
         }
 
         function findUserByCredentials(username, password) {
+            for (var u in users) {
+                var _user = users[u];
+                if (_user.username === username && _user.password === password) {
+                    return _user;
+                }
+            }
+            return null;
         }
 
         function updateUser(userId, user) {
