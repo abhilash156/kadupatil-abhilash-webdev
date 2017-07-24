@@ -21,9 +21,23 @@
         }
 
         function findPageByWebsiteId(websiteId) {
+            for (var u in pages) {
+                var _page = pages[u];
+                if (_page.websiteId === websiteId) {
+                    return _page;
+                }
+            }
+            return null;
         }
 
         function findPageById(pageId) {
+            for (var u in pages) {
+                var _page = pages[u];
+                if (_page._id === pageId) {
+                    return _page;
+                }
+            }
+            return null;
         }
 
         function updatePage(pageId, page) {

@@ -33,9 +33,23 @@
         }
 
         function findWidgetsByPageId(pageId) {
+            for (var u in widgets) {
+                var _widget = widgets[u];
+                if (_widget.pageId === pageId) {
+                    return _widget;
+                }
+            }
+            return null;
         }
 
         function findWidgetById(widgetId) {
+            for (var u in widgets) {
+                var _widget = widgets[u];
+                if (_widget._id === widgetId) {
+                    return _widget;
+                }
+            }
+            return null;
         }
 
         function updateWidget(widgetId, widget) {

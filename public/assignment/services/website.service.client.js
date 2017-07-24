@@ -33,9 +33,23 @@
         }
 
         function findWebsitesByUser(userId) {
+            for (var u in websites) {
+                var _website = websites[u];
+                if (_website.developerId === userId) {
+                    return _website;
+                }
+            }
+            return null;
         }
 
         function findWebsiteById(websiteId) {
+            for (var u in websites) {
+                var _website = websites[u];
+                if (_website._id === websiteId) {
+                    return _website;
+                }
+            }
+            return null;
         }
 
         function updateWebsite(websiteId, website) {
