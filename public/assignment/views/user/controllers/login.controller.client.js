@@ -3,13 +3,22 @@
         .module("WebAppMaker")
         .controller("loginController", loginController);
 
-    function loginController($scope, $location, UserService) {
-        $scope.login = function (user) {
-            var _user = UserService.findUserByCredentials(user.username, user.password);
-            if (_user === null) {
-                $scope.errorMessage = "Invalid Username or Password"
+    function loginController($location, UserService) {
+        var model = this;
+        model.login = login;
+
+        function init() {
+
+        }
+
+        init();
+
+        function login(user) {
+            user = UserService.findUserByCredentials(user.username, user.password);
+            if (user === null) {
+                model.errorMessage = "Invalid Username or Password";
             } else {
-                $location.url("user/" + _user._id)
+                $location.url("user/" + user._id);
             }
         }
     }

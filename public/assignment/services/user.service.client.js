@@ -20,6 +20,9 @@
         return api;
 
         function createUser(user) {
+            user._id = (new Date()).getTime() + "";
+            users.push(user);
+            return user;
         }
 
         function findUserById(userId) {
@@ -53,9 +56,24 @@
         }
 
         function updateUser(userId, user) {
+            for(var u in users) {
+                if(users[u]._id === userId) {
+                    user._id = userId;
+                    users[u] = user;
+                    return user;
+                }
+            }
+            return null;
         }
 
         function deleteUser(userId) {
+            for(var u in users) {
+                if(users[u]._id === userId) {
+                    users.splice(u, 1);
+                    return;
+                }
+            }
+            return null;
         }
     }
 })();

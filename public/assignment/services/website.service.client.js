@@ -21,25 +21,23 @@
             "deleteWebsite": deleteWebsite
         };
 
-        createWebsite(userId, website)
-        findWebsitesByUser(userId)
-        findWebsiteById(websiteId)
-        updateWebsite(websiteId, website)
-        deleteWebsite(websiteId)
-
         return api;
 
         function createWebsite(userId, website) {
+            website._id = (new Date()).getTime() + "";
+            website.userId = userId;
+            websites.push(website);
+            return website;
         }
 
         function findWebsitesByUser(userId) {
-            for (var u in websites) {
-                var _website = websites[u];
-                if (_website.developerId === userId) {
-                    return _website;
+            var sites = [];
+            for(var w in websites) {
+                if(websites[w].developerId === userId) {
+                    sites.push(websites[w]);
                 }
             }
-            return null;
+            return sites;
         }
 
         function findWebsiteById(websiteId) {
@@ -53,6 +51,14 @@
         }
 
         function updateWebsite(websiteId, website) {
+            for(var u in websites) {
+                if(websites[u]._id === websiteId) {
+                    website._id = websiteId;
+                    websites[u] = website;
+                    return website;
+                }
+            }
+            return null;
         }
 
         function deleteWebsite(websiteId) {
