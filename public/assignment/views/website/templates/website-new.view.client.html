@@ -3,13 +3,15 @@
         <div class="container-fluid">
             <div class="row delta-margin-top">
                 <div class="col-xs-1 pull-left">
-                    <a href="#!/user/{{uid}}/website"><span class="glyphicon glyphicon-chevron-left pull-left"></span></a>
+                    <a href="#!/user/{{model.userId}}/website"><span
+                            class="glyphicon glyphicon-chevron-left pull-left"></span></a>
                 </div>
                 <div class="visible-lg col-lg-1">
                     <p class="accent-text pull-left"><b>Websites</b></p>
                 </div>
                 <div class="visible-lg col-lg-1">
-                    <a href="#!/user/{{uid}}/website/new"><span class="glyphicon glyphicon-plus pull-right"></span></a>
+                    <a href="#!/user/{{model.userId}}/website/new"><span
+                            class="glyphicon glyphicon-plus pull-right"></span></a>
                 </div>
 
                 <div class="col-lg-2">
@@ -17,7 +19,8 @@
                 </div>
 
                 <div class="col-lg-1 pull-right">
-                    <a href="#!/user/{{uid}}/website"><span class="glyphicon glyphicon-ok pull-right"></span></a>
+                    <a ng-click="model.createWebsite(model.website)" role="button"><span
+                            class="glyphicon glyphicon-ok pull-right"></span></a>
                 </div>
             </div>
         </div>
@@ -27,43 +30,14 @@
         <div class="row">
             <div class="visible-lg col-lg-3">
                 <ul class="list-group">
-                    <li class="list-group-item">
+                    <li ng-repeat="website in model.websites" class="list-group-item">
                         <div class="row">
                             <div class="col-xs-10">
-                                <a href="#!/user/{{uid}}/website/{{wid}}/page"><b>Address Book App</b></a>
+                                <a href="#!/user/{{model.userId}}/website/{{website._id}}/page"><b>{{website.name}}</b></a>
                             </div>
                             <div class="col-xs-2">
-                                <a href="#!/user/{{uid}}/website/{{wid}}"><span class="glyphicon glyphicon-cog pull-right"></span></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-xs-10">
-                                <a href="#!/user/{{uid}}/website/{{wid}}/page"><b>Blogger</b></a>
-                            </div>
-                            <div class="col-xs-2">
-                                <a href="#!/user/{{uid}}/website/{{wid}}"><span class="glyphicon glyphicon-cog pull-right"></span></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-xs-10">
-                                <a href="#!/user/{{uid}}/website/{{wid}}/page"><b>Blogging App</b></a>
-                            </div>
-                            <div class="col-xs-2">
-                                <a href="#!/user/{{uid}}/website/{{wid}}"><span class="glyphicon glyphicon-cog pull-right"></span></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-xs-10">
-                                <a href="#!/user/{{uid}}/website/{{wid}}/page"><b>Script Testing App</b></a>
-                            </div>
-                            <div class="col-xs-2">
-                                <a href="#!/user/{{uid}}/website/{{wid}}"><span class="glyphicon glyphicon-cog pull-right"></span></a>
+                                <a href="#!/user/{{model.userId}}/website/{{website._id}}"><span
+                                        class="glyphicon glyphicon-cog pull-right"></span></a>
                             </div>
                         </div>
                     </li>
@@ -71,10 +45,11 @@
             </div>
             <div class="col-xs-12 col-lg-9">
                 <label for="name">Name</label>
-                <input name="Name" placeholder="Name" class="form-control" id="name"/>
+                <input name="Name" ng-model="model.website.name" placeholder="Name" class="form-control" id="name"/>
 
                 <label for="description">Description</label>
-                <textarea rows="5" placeholder="Description" class="form-control" id="description"></textarea>
+                <textarea rows="5" placeholder="Description" class="form-control"
+                          id="description" ng-model="model.website.description"></textarea>
             </div>
         </div>
     </div>
@@ -82,7 +57,7 @@
         <div class="container-fluid">
             <div class="row delta-margin-top">
                 <div class="col-lg-1 col-xs-2 pull-right">
-                    <a href="#!/user/{{uid}}"><span class="glyphicon glyphicon-user pull-right"></span></a>
+                    <a href="#!/user/{{model.userId}}"><span class="glyphicon glyphicon-user pull-right"></span></a>
                 </div>
             </div>
         </div>
