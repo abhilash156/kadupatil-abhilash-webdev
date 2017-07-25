@@ -1,15 +1,17 @@
 <div class="delta-content">
+    {{ model.websites }}
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="row delta-margin-top">
                 <div class="col-xs-1 pull-left">
-                    <a href="#!/user/{{uid}}/"><span class="glyphicon glyphicon-chevron-left pull-left"></span></a>
+                    <a href="#!/user/{{model.userId}}/"><span class="glyphicon glyphicon-chevron-left pull-left"></span></a>
                 </div>
                 <div class="col-lg-1 col-xs-2">
                     <p class="accent-text pull-left"><b>Websites</b></p>
                 </div>
                 <div class="col-lg-1 col-xs-2 pull-right">
-                    <a href="#!/user/{{uid}}/website/new"><span class="glyphicon glyphicon-plus pull-right"></span></a>
+                    <a href="#!/user/{{model.userId}}/website/new"><span
+                            class="glyphicon glyphicon-plus pull-right"></span></a>
                 </div>
             </div>
         </div>
@@ -22,40 +24,44 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-xs-10">
-                                <a href="#!/user/{{uid}}/website/{{wid}}/page"><b>Address Book App</b></a>
+                                <a href="#!/user/{{model.userId}}/website/{{wid}}/page"><b>Address Book App</b></a>
                             </div>
                             <div class="col-xs-2">
-                                <a href="#!/user/{{uid}}/website/{{wid}}"><span class="glyphicon glyphicon-cog pull-right"></span></a>
+                                <a href="#!/user/{{model.userId}}/website/{{wid}}"><span
+                                        class="glyphicon glyphicon-cog pull-right"></span></a>
                             </div>
                         </div>
                     </li>
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-xs-10">
-                                <a href="#!/user/{{uid}}/website/{{wid}}/page"><b>Blogger</b></a>
+                                <a href="#!/user/{{model.userId}}/website/{{wid}}/page"><b>Blogger</b></a>
                             </div>
                             <div class="col-xs-2">
-                                <a href="#!/user/{{uid}}/website/{{wid}}"><span class="glyphicon glyphicon-cog pull-right"></span></a>
+                                <a href="#!/user/{{model.userId}}/website/{{wid}}"><span
+                                        class="glyphicon glyphicon-cog pull-right"></span></a>
                             </div>
                         </div>
                     </li>
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-xs-10">
-                                <a href="#!/user/{{uid}}/website/{{wid}}/page"><b>Blogging App</b></a>
+                                <a href="#!/user/{{model.userId}}/website/{{wid}}/page"><b>Blogging App</b></a>
                             </div>
                             <div class="col-xs-2">
-                                <a href="#!/user/{{uid}}/website/{{wid}}"><span class="glyphicon glyphicon-cog pull-right"></span></a>
+                                <a href="#!/user/{{model.userId}}/website/{{wid}}"><span
+                                        class="glyphicon glyphicon-cog pull-right"></span></a>
                             </div>
                         </div>
                     </li>
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-xs-10">
-                                <a href="#!/user/{{uid}}/website/{{wid}}/page"><b>Script Testing App</b></a>
+                                <a href="#!/user/{{model.userId}}/website/{{wid}}/page"><b>Script Testing App</b></a>
                             </div>
                             <div class="col-xs-2">
-                                <a href="#!/user/{{uid}}/website/{{wid}}"><span class="glyphicon glyphicon-cog pull-right"></span></a>
+                                <a href="#!/user/{{model.userId}}/website/{{wid}}"><span
+                                        class="glyphicon glyphicon-cog pull-right"></span></a>
                             </div>
                         </div>
                     </li>
@@ -65,10 +71,10 @@
         </div>
     </div>
     <nav class="navbar navbar-default navbar-fixed-bottom">
-        <div class="container-fluid">
+        <div class="container-flmodel.userId">
             <div class="row delta-margin-top">
                 <div class="col-lg-1 col-xs-2 pull-right">
-                    <a href="#!/user/{{uid}}"><span class="glyphicon glyphicon-user pull-right"></span></a>
+                    <a href="#!/user/{{model.userId}}"><span class="glyphicon glyphicon-user pull-right"></span></a>
                 </div>
             </div>
         </div>

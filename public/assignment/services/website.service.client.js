@@ -1,7 +1,7 @@
 (function () {
-    angular.module("WebAppMaker").factory("WebsiteService", WebsiteService);
+    angular.module("WebAppMaker").factory("websiteService", websiteService);
 
-    function WebsiteService() {
+    function websiteService() {
         var websites = [
                 {"_id": "123", "name": "Facebook", "developerId": "456", "description": "Lorem"},
                 {"_id": "234", "name": "Tweeter", "developerId": "456", "description": "Lorem"},
@@ -62,6 +62,13 @@
         }
 
         function deleteWebsite(websiteId) {
+            for(var w in websites) {
+                if(websites[w]._id === websiteId) {
+                    websites.splice(w, 1);
+                    return;
+                }
+            }
+            return null;
         }
     }
 })();

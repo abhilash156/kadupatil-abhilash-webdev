@@ -56,6 +56,13 @@
         }
 
         function deletePage(pageId) {
+            for(var p in pages) {
+                if(pages[p]._id === pageId) {
+                    pages.splice(p, 1);
+                    return;
+                }
+            }
+            return null;
         }
     }
 })();
