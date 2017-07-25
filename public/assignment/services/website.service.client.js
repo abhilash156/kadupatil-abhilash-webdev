@@ -44,7 +44,7 @@
             for (var u in websites) {
                 var _website = websites[u];
                 if (_website._id === websiteId) {
-                    return _website;
+                    return angular.copy(_website);
                 }
             }
             return null;

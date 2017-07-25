@@ -38,7 +38,7 @@
             for (var u in pages) {
                 var _page = pages[u];
                 if (_page._id === pageId) {
-                    return _page;
+                    return angular.copy(_page);
                 }
             }
             return null;
