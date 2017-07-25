@@ -11,7 +11,7 @@
                 </div>
 
                 <div class="col-lg-1 pull-right">
-                    <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget"><span
+                    <a ng-click="model.updateWidget(model.widget)" role="button"><span
                             class="glyphicon glyphicon-ok pull-right"></span></a>
                 </div>
             </div>
@@ -37,6 +37,10 @@
                         <ng-include src="'views/widget/templates/widget-html.view.client.html'">
                     </div>
                 </div>
+
+                <!--<ng-include src="model.getWidgetUrlForType(model.widget)"></ng-include>-->
+                <span class="delta-divider"></span>
+                <a class="btn btn-default btn-danger btn-block" ng-click="model.deleteWidget()">Delete</a>
             </div>
             <div class="visible-lg visible-md col-lg-2 col-md-1"></div>
         </div>

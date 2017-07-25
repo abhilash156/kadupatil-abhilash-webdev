@@ -57,10 +57,10 @@
         }
 
         function updateWidget(widgetId, widget) {
-            for(var u in widgets) {
-                if(widgets[u]._id === widgetId) {
+            for(var w in widgets) {
+                if(widgets[w]._id === widgetId) {
                     widget._id = widgetId;
-                    widgets[u] = widget;
+                    widgets[w] = widget;
                     return widget;
                 }
             }
