@@ -3,13 +3,13 @@
         <div class="container-fluid">
             <div class="row delta-margin-top">
                 <div class="col-xs-1 pull-left">
-                    <a href="#!/user/{{uid}}/website"><span class="glyphicon glyphicon-chevron-left pull-left"></span></a>
+                    <a href="#!/user/{{model.userId}}/website"><span class="glyphicon glyphicon-chevron-left pull-left"></span></a>
                 </div>
                 <div class="col-lg-1 col-xs-2">
                     <p class="accent-text pull-left"><b>Pages</b></p>
                 </div>
                 <div class="col-lg-1 col-xs-2 pull-right">
-                    <a href="#!/user/{{uid}}/website/{{wid}}/page/new"><span class="glyphicon glyphicon-plus pull-right"></span></a>
+                    <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/new"><span class="glyphicon glyphicon-plus pull-right"></span></a>
                 </div>
             </div>
         </div>
@@ -19,43 +19,14 @@
             <div class="visible-lg visible-md col-lg-2 col-md-1"></div>
             <div class="col-xs-12 col-lg-8 col-md-10">
                 <ul class="list-group">
-                    <li class="list-group-item">
+                    <li ng-repeat="page in model.pages" class="list-group-item">
                         <div class="row">
                             <div class="col-xs-10">
-                                <a href="#!/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget"><b>Blog Post</b></a>
+                                <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget"><b>{{page.name}}</b></a>
                             </div>
                             <div class="col-xs-2">
-                                <a href="#!/user/{{uid}}/website/{{wid}}/page/{{pid}}"><span class="glyphicon glyphicon-cog pull-right"></span></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-xs-10">
-                                <a href="#!/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget"><b>Blogger</b></a>
-                            </div>
-                            <div class="col-xs-2">
-                                <a href="#!/user/{{uid}}/website/{{wid}}/page/{{pid}}"><span class="glyphicon glyphicon-cog pull-right"></span></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-xs-10">
-                                <a href="#!/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget"><b>Blogging App</b></a>
-                            </div>
-                            <div class="col-xs-2">
-                                <a href="#!/user/{{uid}}/website/{{wid}}/page/{{pid}}"><span class="glyphicon glyphicon-cog pull-right"></span></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-xs-10">
-                                <a href="#!/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget"><b>Script Testing App</b></a>
-                            </div>
-                            <div class="col-xs-2">
-                                <a href="#!/user/{{uid}}/website/{{wid}}/page/{{pid}}"><span class="glyphicon glyphicon-cog pull-right"></span></a>
+                                <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}"><span
+                                        class="glyphicon glyphicon-cog pull-right"></span></a>
                             </div>
                         </div>
                     </li>
@@ -68,7 +39,7 @@
         <div class="container-fluid">
             <div class="row delta-margin-top">
                 <div class="col-lg-1 col-xs-2 pull-right">
-                    <a href="#!/user/{{uid}}"><span class="glyphicon glyphicon-user pull-right"></span></a>
+                    <a href="#!/user/{{model.userId}}"><span class="glyphicon glyphicon-user pull-right"></span></a>
                 </div>
             </div>
         </div>
