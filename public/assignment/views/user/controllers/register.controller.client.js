@@ -3,14 +3,24 @@
         .module("WebAppMaker")
         .controller("registerController", registerController);
 
-    function registerController($scope, userService) {
+    function registerController(UserService, $location) {
+        var model = this;
+
+        model.registerUser = registerUser;
+
+        function init() {
+
+        }
+
+        init();
+
         function registerUser(user) {
-            var _user = userService.findUserByUsername(user.username);
-            if(!_user) {
-                user = userService.createUser(user);
-                $location.url("/profile/"+user._id);
+            var _user = UserService.findUserByUsername(user.username);
+            if (!_user) {
+                user = UserService.createUser(user);
+                $location.url("/user/" + user._id);
             } else {
-                $scope.errorMessage = "User already exists";
+                model.errorMessage = "User already exists";
             }
         }
     }
