@@ -32,8 +32,8 @@
 
         function findWebsitesByUser(userId) {
             var sites = [];
-            for(var w in websites) {
-                if(websites[w].developerId === userId) {
+            for (var w in websites) {
+                if (websites[w].developerId === userId) {
                     sites.push(websites[w]);
                 }
             }
@@ -51,8 +51,8 @@
         }
 
         function updateWebsite(websiteId, website) {
-            for(var u in websites) {
-                if(websites[u]._id === websiteId) {
+            for (var u in websites) {
+                if (websites[u]._id === websiteId) {
                     website._id = websiteId;
                     websites[u] = website;
                     return website;
@@ -62,8 +62,8 @@
         }
 
         function deleteWebsite(websiteId) {
-            for(var w in websites) {
-                if(websites[w]._id === websiteId) {
+            for (var w in websites) {
+                if (websites[w]._id === websiteId) {
                     websites.splice(w, 1);
                     return;
                 }

@@ -26,8 +26,8 @@
 
         function findPageByWebsiteId(websiteId) {
             var currentPages = [];
-            for(var p in pages) {
-                if(pages[p].websiteId === websiteId) {
+            for (var p in pages) {
+                if (pages[p].websiteId === websiteId) {
                     currentPages.push(pages[p]);
                 }
             }
@@ -45,8 +45,8 @@
         }
 
         function updatePage(pageId, page) {
-            for(var u in pages) {
-                if(pages[u]._id === pageId) {
+            for (var u in pages) {
+                if (pages[u]._id === pageId) {
                     page._id = pageId;
                     pages[u] = page;
                     return page;
@@ -56,8 +56,8 @@
         }
 
         function deletePage(pageId) {
-            for(var p in pages) {
-                if(pages[p]._id === pageId) {
+            for (var p in pages) {
+                if (pages[p]._id === pageId) {
                     pages.splice(p, 1);
                     return;
                 }
