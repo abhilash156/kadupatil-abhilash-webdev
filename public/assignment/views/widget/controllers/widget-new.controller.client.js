@@ -11,14 +11,18 @@
         model.pageId = $routeParams["pid"];
 
         function init() {
-            model.widgets = widgetService.findWidgetsByPageId(model.pageId);
         }
 
         init();
 
-        function createWidget(widget) {
+        function createWidget(widgetType) {
+            var widget = {
+                "widgetType": widgetType
+            };
+
             widgetService.createWidget(model.pageId, widget);
-            //$location.url("user/" + model.userId + "/ed");
+            $location.url("/user/" + model.userId + "/website/" + model.websiteId + "/page/" + model.pageId
+                + "/widget/" + widget._id);
         }
     }
 })();

@@ -1,3 +1,7 @@
+a:hover {
+    text-decoration: none;
+}
+
 .delta-login {
     padding-top: 48px;
 }
@@ -21,11 +25,11 @@ body {
     padding-bottom: 60px;
 }
 
-#header{
+#header {
     margin-top: 12px;
 }
 
-.delta-margin-top{
+.delta-margin-top {
     margin-top: 12px;
 }
 
