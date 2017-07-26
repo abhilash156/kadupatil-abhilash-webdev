@@ -22,22 +22,7 @@
         <div class="row">
             <div class="visible-lg visible-md col-lg-2 col-md-1"></div>
             <div class="col-xs-12 col-lg-8 col-md-10">
-                <div ng-switch="model.widget.widgetType">
-                    <div ng-switch-when="HEADING">
-                        <ng-include src="'views/widget/templates/widget-heading.view.client.html'">
-                    </div>
-                    <div ng-switch-when="IMAGE">
-                        <ng-include src="'views/widget/templates/widget-image.view.client.html'">
-                    </div>
-                    <div ng-switch-when="YOUTUBE">
-                        <ng-include src="'views/widget/templates/widget-youtube.view.client.html'">
-                    </div>
-                    <div ng-switch-when="HTML">
-                        <ng-include src="'views/widget/templates/widget-html.view.client.html'">
-                    </div>
-                </div>
-
-                <!--<ng-include src="model.getWidgetUrlForType(model.widget)"></ng-include>-->
+                <ng-include src="model.getWidgetUrlForType(model.widget.widgetType)"></ng-include>
                 <span class="delta-divider"></span>
                 <a class="btn btn-default btn-danger btn-block" ng-click="model.deleteWidget()">Delete</a>
             </div>
