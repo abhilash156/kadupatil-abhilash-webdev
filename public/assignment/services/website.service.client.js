@@ -9,7 +9,9 @@
                 {"_id": "890", "name": "Go", "developerId": "123", "description": "Lorem"},
                 {"_id": "567", "name": "Tic Tac Toe", "developerId": "123", "description": "Lorem"},
                 {"_id": "678", "name": "Checkers", "developerId": "123", "description": "Lorem"},
-                {"_id": "789", "name": "Chess", "developerId": "234", "description": "Lorem"}
+                {"_id": "789", "name": "Chess", "developerId": "234", "description": "Lorem"},
+                {"_id": "222", "name": "Game-On", "developerId": "156", "description": "Game-On is an video game blog " +
+                "featuring articles, news, strategy, and reviews of video games and associated consoles."}
             ]
         ;
 
