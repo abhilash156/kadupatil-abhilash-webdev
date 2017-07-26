@@ -29,22 +29,16 @@
                             <a href="#"><span class="glyphicon glyphicon-align-justify"></span></a>
                         </div>
                         <div ng-switch="widget.widgetType">
-                            <div ng-switch-when="HEADING" ng-switch="widget.size">
-                                <h1 ng-switch-when="1">{{widget.text}}</h1>
-                                <h2 ng-switch-when="2">{{widget.text}}</h2>
-                                <h3 ng-switch-when="3">{{widget.text}}</h3>
-                                <h4 ng-switch-when="4">{{widget.text}}</h4>
-                                <h5 ng-switch-when="5">{{widget.text}}</h5>
-                                <h6 ng-switch-when="6">{{widget.text}}</h6>
+                            <div ng-switch-when="HEADING" >
+                                <ng-include src="'views/widget/templates/widget-heading.view.client.html'">
                             </div>
                             <div ng-switch-when="IMAGE">
-                                <img ng-src="{{widget.url}}" width="{{widget.width}}">
+                                <ng-include src="'views/widget/templates/widget-image.view.client.html'">
+
                             </div>
                             <div ng-switch-when="YOUTUBE">
-                                <iframe class="delta-iframe"
-                                        src="{{model.getYouTubeEmbedUrl(widget.url)}}"
-                                        frameborder="0"
-                                        allowfullscreen></iframe>
+                                <ng-include src="'views/widget/templates/widget-youtube.view.client.html'">
+
                             </div>
                             <div ng-switch-when="HTML" ng-bind-html="model.trustThisContent(widget.text)">
                             </div>
