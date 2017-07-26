@@ -22,7 +22,6 @@
         init();
 
         function getWidgetUrlForType(type) {
-            console.log(type);
             var widgetUrl = 'views/widget/templates/widget-' + type.toLowerCase() + '-edit.view.client.html';
             return widgetUrl;
         }
