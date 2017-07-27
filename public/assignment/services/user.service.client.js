@@ -1,14 +1,16 @@
 (function () {
-    angular.module("WebAppMaker").factory("UserService", UserService);
+    angular.module("WebAppMaker").factory("userService", userService);
 
-    function UserService() {
+    function userService($http) {
         var users = [
             {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder"},
             {_id: "234", username: "bob", password: "bob", firstName: "Bob", lastName: "Marley"},
             {_id: "345", username: "charly", password: "charly", firstName: "Charly", lastName: "Garcia"},
             {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi"},
-            {_id: "156", username: "desmond", password: "desmond", firstName: "Desmond", lastName: "Miles",
-                email : "desmond@assassins.com"}
+            {
+                _id: "156", username: "desmond", password: "desmond", firstName: "Desmond", lastName: "Miles",
+                email: "desmond@assassins.com"
+            }
         ];
 
         var api = {
@@ -28,13 +30,7 @@
         }
 
         function findUserById(userId) {
-            for (var u in users) {
-                var _user = users[u];
-                if (_user._id === userId) {
-                    return _user;
-                }
-            }
-            return null;
+            return $http.get("/api/user/" + userId);
         }
 
         function findUserByUsername(username) {
@@ -48,13 +44,7 @@
         }
 
         function findUserByCredentials(username, password) {
-            for (var u in users) {
-                var _user = users[u];
-                if (_user.username === username && _user.password === password) {
-                    return _user;
-                }
-            }
-            return null;
+            return $http.get("/user?username=" + username + "&password=" + password);
         }
 
         function updateUser(userId, user) {

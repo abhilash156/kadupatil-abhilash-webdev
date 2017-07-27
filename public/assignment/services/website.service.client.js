@@ -1,7 +1,7 @@
 (function () {
     angular.module("WebAppMaker").factory("websiteService", websiteService);
 
-    function websiteService() {
+    function websiteService($http) {
         var websites = [
                 {"_id": "123", "name": "Facebook", "developerId": "456", "description": "Lorem"},
                 {"_id": "234", "name": "Tweeter", "developerId": "456", "description": "Lorem"},
@@ -10,8 +10,10 @@
                 {"_id": "567", "name": "Tic Tac Toe", "developerId": "123", "description": "Lorem"},
                 {"_id": "678", "name": "Checkers", "developerId": "123", "description": "Lorem"},
                 {"_id": "789", "name": "Chess", "developerId": "234", "description": "Lorem"},
-                {"_id": "222", "name": "Game-On", "developerId": "156", "description": "Game-On is an video game blog " +
-                "featuring articles, news, strategy, and reviews of video games and associated consoles."}
+                {
+                    "_id": "222", "name": "Game-On", "developerId": "156", "description": "Game-On is an video game blog " +
+                "featuring articles, news, strategy, and reviews of video games and associated consoles."
+                }
             ]
         ;
 
@@ -33,13 +35,13 @@
         }
 
         function findWebsitesByUser(userId) {
-            var sites = [];
-            for (var w in websites) {
-                if (websites[w].developerId === userId) {
-                    sites.push(websites[w]);
-                }
-            }
-            return sites;
+            var url = "/api/user/" + userId + "/website";
+
+            var data = $http.get(url).then(function (response) {
+                return response.data;
+            });
+            console.log(data);
+            return data;
         }
 
         function findWebsiteById(websiteId) {

@@ -3,7 +3,7 @@
         .module("WebAppMaker")
         .controller("profileController", profileController);
 
-    function profileController($routeParams, UserService, $location) {
+    function profileController($routeParams, userService, $location) {
         var model = this;
 
         var userId = $routeParams["uid"];
@@ -12,18 +12,21 @@
         model.deleteUser = deleteUser;
 
         function init() {
-            model.user = UserService.findUserById(userId)
+            userService.findUserById(userId)
+                .then(function (response) {
+                    model.user = response.data;
+                });
         }
 
         init();
 
         function updateUser(user) {
-            var _user = UserService.updateUser(user);
+            var _user = userService.updateUser(user);
             $location.url("user/" + _user._id);
         }
 
         function deleteUser(userId) {
-            UserService.deleteUser(userId);
+            userService.deleteUser(userId);
             $location.url("login/");
         }
     }

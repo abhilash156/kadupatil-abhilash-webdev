@@ -10,6 +10,7 @@
 
         function init() {
             model.websites = websiteService.findWebsitesByUser(model.userId);
+            console.log(model.websites);
         }
 
         init();

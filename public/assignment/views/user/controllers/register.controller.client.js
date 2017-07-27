@@ -3,7 +3,7 @@
         .module("WebAppMaker")
         .controller("registerController", registerController);
 
-    function registerController(UserService, $location) {
+    function registerController(userService, $location) {
         var model = this;
 
         model.registerUser = registerUser;
@@ -16,9 +16,9 @@
 
         function registerUser(user, password) {
             if(password === user.password) {
-                var _user = UserService.findUserByUsername(user.username);
+                var _user = userService.findUserByUsername(user.username);
                 if (!_user) {
-                    user = UserService.createUser(user);
+                    user = userService.createUser(user);
                     $location.url("/user/" + user._id);
                 } else {
                     model.errorMessage = "User already exists";
