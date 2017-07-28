@@ -13,20 +13,24 @@
 
         function init() {
             userService.findUserById(userId)
-                .then(function (response) {
-                    model.user = response.data;
+                .then(function (user) {
+                    model.user = user;
                 });
         }
 
         init();
 
         function updateUser(user) {
-            var _user = userService.updateUser(user);
-            $location.url("user/" + _user._id);
+            userService.updateUser(userId, user)
+                .then(function (_user) {
+                    $location.url("user/" + _user._id);
+                });
         }
 
         function deleteUser(userId) {
-            userService.deleteUser(userId);
+            userService.deleteUser(userId)
+                .then(function (_user) {
+                });
             $location.url("login/");
         }
     }

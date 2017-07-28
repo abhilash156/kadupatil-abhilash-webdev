@@ -1,18 +1,22 @@
 var app = require("../../express");
 
 var users = [
-    {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder", isAdmin: true},
+    {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder"},
     {_id: "234", username: "bob", password: "bob", firstName: "Bob", lastName: "Marley"},
     {_id: "345", username: "charly", password: "charly", firstName: "Charly", lastName: "Garcia"},
-    {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi"}
+    {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi"},
+    {
+        _id: "156", username: "desmond", password: "desmond", firstName: "Desmond", lastName: "Miles",
+        email: "desmond@assassins.com"
+    }
 ];
 
 // http handlers
 
 app.post("/api/user", createUser);
-app.get("/user", findUserByCredentials);
+app.get("/api/user", findUserByCredentials);
 app.get("/api/user/:userId", findUserById);
-app.put("/api/:userId", updateUser);
+app.put("/api/user/:userId", updateUser);
 app.delete("/api/user/:userId", deleteUser);
 
 app.get("/api/users", getAllUsers);
@@ -31,36 +35,45 @@ function findUserByUsername(request, response) {
     for (var u in users) {
         var _user = users[u];
         if (_user.username === username) {
-            return response.send(_user);
+            return response.json(_user);
         }
     }
-    response.send("0");
+    response.sendStatus(404);
 }
 
 function findUserByCredentials(request, response) {
     var username = request.query.username;
     var password = request.query.password;
-
-    for (var u in users) {
-        var _user = users[u];
-        if (_user.username === username && _user.password === password) {
-            response.send(_user);
+    if (username && password) {
+        for (var u in users) {
+            var _user = users[u];
+            if (_user.username === username && _user.password === password) {
+                response.json(_user);
+            }
+        }
+    } else if (username) {
+        for (var u in users) {
+            _user = users[u];
+            if (_user.username === username) {
+                response.json(_user);
+            }
         }
     }
-    response.send("0");
+    response.sendStatus(404);
 }
 
 function findUserById(request, response) {
     for (var u in users) {
         if (users[u]._id === request.params.userId) {
-            response.send(users[u]);
+            response.json(users[u]);
         }
     }
+    response.sendStatus(404);
 }
 
 function updateUser(request, response) {
-    var user = request.query.user;
-    var userId = request.query.userId;
+    var user = request.body;
+    var userId = request.params.userId;
 
     for (var u in users) {
         if (users[u]._id === userId) {
@@ -69,17 +82,19 @@ function updateUser(request, response) {
             response.send(user);
         }
     }
-    response.send("0");
+    response.sendStatus(404);
 }
 
-function deleteUser(userId) {
+function deleteUser(request, response) {
+    var userId = request.params.userId;
+
     for (var u in users) {
         if (users[u]._id === userId) {
             users.splice(u, 1);
-            return;
+            response.sendStatus(200);
         }
     }
-    return null;
+    response.sendStatus(404);
 }
 
 function getAllUsers(request, response) {

@@ -8,15 +8,12 @@
         model.login = login;
 
         function init() {
-
         }
-
         init();
 
         function login(user) {
             userService.findUserByCredentials(user.username, user.password)
-                .then(function (response) {
-                    user = response.data;
+                .then(function (user) {
                     if (user === null) {
                         model.errorMessage = "Invalid Username or Password";
                     } else {
