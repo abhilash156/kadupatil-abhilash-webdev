@@ -24,10 +24,10 @@ app.get("/api/users", getAllUsers);
 //GET /api/user?username=username findUserByUsername
 
 function createUser(request, response) {
-    var user = request.query.user;
+    var user = request.body;
     user._id = (new Date()).getTime() + "";
     users.push(user);
-    return response.send(user);
+    response.send(user);
 }
 
 function findUserByUsername(request, response) {

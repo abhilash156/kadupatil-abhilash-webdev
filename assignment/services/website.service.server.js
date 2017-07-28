@@ -15,13 +15,20 @@ var websites = [
     ]
 ;
 
+app.post("/api/user/:userId/website", createWebsite);
 app.get("/api/user/:userId/website", findWebsitesByUser);
+app.get("/api/website/:websiteId", findWebsiteById);
+app.put("/api/website/:websiteId", updateWebsite);
+app.delete("/api/website/:websiteId", deleteWebsite);
 
-function createWebsite(userId, website) {
+function createWebsite(request, response) {
+    var userId = request.params.userId;
+    var website = request.body;
+
     website._id = (new Date()).getTime() + "";
     website.developerId = userId;
     websites.push(website);
-    return website;
+    response.json(website);
 }
 
 function findWebsitesByUser(request, response) {
@@ -36,33 +43,40 @@ function findWebsitesByUser(request, response) {
     return response.json(sites);
 }
 
-function findWebsiteById(websiteId) {
+function findWebsiteById(request, response) {
+    var websiteId = request.params.websiteId;
+
     for (var u in websites) {
         var _website = websites[u];
         if (_website._id === websiteId) {
-            return angular.copy(_website);
+            response.json(_website);
         }
     }
-    return null;
+    response.sendStatus(404);
 }
 
-function updateWebsite(websiteId, website) {
+function updateWebsite(request, response) {
+    var website = request.body;
+    var websiteId = request.params.websiteId;
+
     for (var u in websites) {
         if (websites[u]._id === websiteId) {
             website._id = websiteId;
             websites[u] = website;
-            return website;
+            response.json(website);
         }
     }
-    return null;
+    response.sendStatus(404);
 }
 
-function deleteWebsite(websiteId) {
+function deleteWebsite(request, response) {
+    var websiteId = request.params.websiteId;
+
     for (var w in websites) {
         if (websites[w]._id === websiteId) {
             websites.splice(w, 1);
-            return;
+            response.sendStatus(200);
         }
     }
-    return null;
+    response.sendStatus(404);
 }
