@@ -21,7 +21,6 @@ app.delete("/api/user/:userId", deleteUser);
 
 app.get("/api/users", getAllUsers);
 
-//GET /api/user?username=username findUserByUsername
 
 function createUser(request, response) {
     var user = request.body;
@@ -35,7 +34,8 @@ function findUserByUsername(request, response) {
     for (var u in users) {
         var _user = users[u];
         if (_user.username === username) {
-            return response.json(_user);
+            response.json(_user);
+            return;
         }
     }
     response.sendStatus(404);
@@ -49,6 +49,7 @@ function findUserByCredentials(request, response) {
             var _user = users[u];
             if (_user.username === username && _user.password === password) {
                 response.json(_user);
+                return;
             }
         }
     } else if (username) {
@@ -56,6 +57,7 @@ function findUserByCredentials(request, response) {
             _user = users[u];
             if (_user.username === username) {
                 response.json(_user);
+                return;
             }
         }
     }
@@ -66,6 +68,7 @@ function findUserById(request, response) {
     for (var u in users) {
         if (users[u]._id === request.params.userId) {
             response.json(users[u]);
+            return;
         }
     }
     response.sendStatus(404);
@@ -79,7 +82,8 @@ function updateUser(request, response) {
         if (users[u]._id === userId) {
             user._id = userId;
             users[u] = user;
-            response.send(user);
+            response.json(user);
+            return;
         }
     }
     response.sendStatus(404);
@@ -92,11 +96,12 @@ function deleteUser(request, response) {
         if (users[u]._id === userId) {
             users.splice(u, 1);
             response.sendStatus(200);
+            return;
         }
     }
     response.sendStatus(404);
 }
 
 function getAllUsers(request, response) {
-    response.send(users);
+    response.json(users);
 }

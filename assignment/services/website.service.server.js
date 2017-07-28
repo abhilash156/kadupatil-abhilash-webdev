@@ -50,6 +50,7 @@ function findWebsiteById(request, response) {
         var _website = websites[u];
         if (_website._id === websiteId) {
             response.json(_website);
+            return;
         }
     }
     response.sendStatus(404);
@@ -64,6 +65,7 @@ function updateWebsite(request, response) {
             website._id = websiteId;
             websites[u] = website;
             response.json(website);
+            return;
         }
     }
     response.sendStatus(404);
@@ -76,6 +78,7 @@ function deleteWebsite(request, response) {
         if (websites[w]._id === websiteId) {
             websites.splice(w, 1);
             response.sendStatus(200);
+            return;
         }
     }
     response.sendStatus(404);

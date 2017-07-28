@@ -49,6 +49,7 @@ function findPageById(request, response) {
         var _page = pages[p];
         if (_page._id === pageId) {
             response.json(_page);
+            return;
         }
     }
     response.sendStatus(404);
@@ -63,6 +64,7 @@ function updatePage(request, response) {
             page._id = pageId;
             pages[p] = page;
             response.json(page);
+            return;
         }
     }
     response.sendStatus(404);
@@ -75,6 +77,7 @@ function deletePage(request, response) {
         if (pages[p]._id === pageId) {
             pages.splice(p, 1);
             response.sendStatus(200);
+            return;
         }
     }
     response.sendStatus(404);

@@ -33,9 +33,10 @@
         }
 
         function deletePage() {
-            pageService.deletePage(model.pageId).then(function () {
-                $location.url("user/" + model.userId + "/website/" + model.websiteId + "/page");
-            });
+            pageService.deletePage(model.pageId)
+                .then(function () {
+                    $location.url("user/" + model.userId + "/website/" + model.websiteId + "/page");
+                });
         }
     }
 })();
