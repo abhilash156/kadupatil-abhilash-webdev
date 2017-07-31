@@ -1,5 +1,8 @@
 var app = require("../../express");
 
+var multer = require('multer');
+var upload = multer({dest: __dirname + '/../../public/assignment/uploads'});
+
 var widgets = [
     {"_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO"},
     {"_id": "234", "widgetType": "HEADING", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
@@ -53,6 +56,7 @@ app.get("/api/page/:pageId/widget", findAllWidgetsForPage);
 app.get("/api/widget/:widgetId", findWidgetById);
 app.put("/api/widget/:widgetId", updateWidget);
 app.delete("/api/widget/:widgetId", deleteWidget);
+app.post("/api/upload", upload.single('myFile'), uploadImage);
 
 function createWidget(request, response) {
     var pageId = request.params.pageId;
@@ -89,6 +93,16 @@ function findWidgetById(request, response) {
     response.sendStatus(404);
 }
 
+function getWidgetById(widgetId) {
+    for (var w in widgets) {
+        var _widget = widgets[w];
+        if (_widget._id === widgetId) {
+            return _widget;
+        }
+    }
+    return null;
+}
+
 function updateWidget(request, response) {
     var widget = request.body;
     var widgetId = request.params.widgetId;
@@ -115,4 +129,29 @@ function deleteWidget(request, response) {
         }
     }
     response.sendStatus(404);
+}
+
+function uploadImage(request, response) {
+    var widgetId = request.body.widgetId;
+    var width = request.body.width;
+    var myFile = request.file;
+
+    var userId = request.body.userId;
+    var websiteId = request.body.websiteId;
+    var pageId = request.body.pageId;
+
+    var originalname = myFile.originalname; // file name on user's computer
+    var filename = myFile.filename;     // new file name in upload folder
+    var path = myFile.path;         // full path of uploaded file
+    var destination = myFile.destination;  // folder where file is saved to
+    var size = myFile.size;
+    var mimetype = myFile.mimetype;
+
+    var widget = getWidgetById(widgetId);
+    widget.url = '/assignment/uploads/' + filename;
+    widget.width = width;
+
+    var callbackUrl = "/assignment/#!/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + widgetId;
+
+    response.redirect(callbackUrl);
 }
