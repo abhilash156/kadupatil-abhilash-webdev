@@ -42,6 +42,12 @@
             return $http.delete(url).then(successCallback, errorCallback);
         }
 
+        function reOrderWidget(startIndex, endIndex) {
+            var url = "/api/page/" + 333 + "/widget?initial=" + startIndex + "&final=" + endIndex;
+
+            return $http.put(url).then(successCallback, errorCallback);
+        }
+
         function successCallback(response) {
             return response.data;
         }

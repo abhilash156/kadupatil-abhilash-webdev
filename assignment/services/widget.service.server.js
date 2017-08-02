@@ -53,6 +53,7 @@ var widgets = [
 
 app.post("/api/page/:pageId/widget", createWidget);
 app.get("/api/page/:pageId/widget", findAllWidgetsForPage);
+app.put("/api/page/:pageId/widget", updateWidgetLocationForPage);
 app.get("/api/widget/:widgetId", findWidgetById);
 app.put("/api/widget/:widgetId", updateWidget);
 app.delete("/api/widget/:widgetId", deleteWidget);
@@ -69,16 +70,32 @@ function createWidget(request, response) {
 }
 
 function findAllWidgetsForPage(request, response) {
-    var pageId = request.params.pageId;
 
+    return response.json(getAllWidgetsForPage(request.params.pageId));
+}
+
+function getAllWidgetsForPage(pageId) {
     var sites = [];
     for (var w in widgets) {
         if (widgets[w].pageId === pageId) {
             sites.push(widgets[w]);
         }
     }
-    return response.json(sites);
+    return sites;
 }
+
+function filterAllWidgetsForPage(pageId) {
+    return widgets.filter(function (element) {
+        return element.pageId === pageId;
+    });
+}
+
+function filterAllWidgetsNotForPage(pageId) {
+    return widgets.filter(function (element) {
+        return element.pageId !== pageId;
+    });
+}
+
 
 function findWidgetById(request, response) {
     var widgetId = request.params.widgetId;
@@ -129,6 +146,19 @@ function deleteWidget(request, response) {
         }
     }
     response.sendStatus(404);
+}
+
+
+function updateWidgetLocationForPage(request, response) {
+    var initial = request.query.initial;
+    var final = request.query.final;
+    var pageId = request.params.pageId;
+
+    var widgetsList = filterAllWidgetsForPage(pageId);
+    widgetsList.splice(final, 0, widgetsList.splice(initial, 1)[0]);
+    widgets = filterAllWidgetsNotForPage(pageId);
+    widgets = widgets.concat(widgetsList);
+    response.sendStatus(200);
 }
 
 function uploadImage(request, response) {
