@@ -7,7 +7,8 @@
             "findWidgetsByPageId": findWidgetsByPageId,
             "findWidgetById": findWidgetById,
             "updateWidget": updateWidget,
-            "deleteWidget": deleteWidget
+            "deleteWidget": deleteWidget,
+            "reOrderWidgets" : reOrderWidgets
         };
         return api;
 
@@ -42,8 +43,8 @@
             return $http.delete(url).then(successCallback, errorCallback);
         }
 
-        function reOrderWidget(startIndex, endIndex) {
-            var url = "/api/page/" + 333 + "/widget?initial=" + startIndex + "&final=" + endIndex;
+        function reOrderWidgets(startIndex, endIndex, pageId) {
+            var url = "/api/page/" + pageId + "/widget?initial=" + startIndex + "&final=" + endIndex;
 
             return $http.put(url).then(successCallback, errorCallback);
         }

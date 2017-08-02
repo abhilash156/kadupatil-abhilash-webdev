@@ -1,17 +1,10 @@
 (function () {
     angular.module('WebAppMaker')
-        .directive('hello', helloTag)
         .directive('deltaDraggable', deltaDraggable);
 
-
-    function helloTag() {
-        return {
-            template: 'Hello World!'
-        }
-    }
-
-    function deltaDraggable($http) {
+    function deltaDraggable($routeParams, widgetService) {
         function linkFunction(scope, element) {
+            var pageId = $routeParams["pid"];
             var startIndex = -1;
             var endIndex = -1;
             $(element).sortable({
@@ -23,7 +16,7 @@
                 stop: function (event, ui) {
                     endIndex = $(ui.item).index();
                     console.log([startIndex, endIndex]);
-                    $http.put("/api/page/" + 333 + "/widget?initial=" + startIndex + "&final=" + endIndex);
+                    widgetService.reOrderWidgets(startIndex, endIndex, pageId);
                 }
             });
         }
