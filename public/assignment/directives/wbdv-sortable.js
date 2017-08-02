@@ -1,5 +1,5 @@
 (function () {
-    angular.module('WebAppMaker')
+    angular.module('wbdvDirectives', ["ngRoute"])
         .directive('deltaDraggable', deltaDraggable);
 
     function deltaDraggable($routeParams, widgetService) {
