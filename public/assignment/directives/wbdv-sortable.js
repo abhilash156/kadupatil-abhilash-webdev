@@ -15,7 +15,6 @@
                 },
                 stop: function (event, ui) {
                     endIndex = $(ui.item).index();
-                    console.log([startIndex, endIndex]);
                     widgetService.reOrderWidgets(startIndex, endIndex, pageId);
                 }
             });
