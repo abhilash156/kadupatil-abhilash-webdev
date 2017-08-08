@@ -8,5 +8,5 @@ var websiteSchema = mongoose.Schema({
     dateCreated: {type: Date, default: Date.now}
 }, {collection: "website"});
 
-modules.exports = websiteSchema;
+module.exports = websiteSchema;
 

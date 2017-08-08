@@ -22,16 +22,16 @@
 
         function updateUser(user) {
             userService.updateUser(userId, user)
-                .then(function (_user) {
-                    $location.url("user/" + _user._id);
+                .then(function () {
+                    $location.url("user/" + userId);
                 });
         }
 
         function deleteUser(userId) {
             userService.deleteUser(userId)
-                .then(function (_user) {
+                .then(function () {
+                    $location.url("login/");
                 });
-            $location.url("login/");
         }
     }
 })();

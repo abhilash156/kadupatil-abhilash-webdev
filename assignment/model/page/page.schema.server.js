@@ -9,4 +9,4 @@ var pageSchema = mongoose.Schema({
     dateCreated: {type: Date, default: Date.now}
 }, {collection: "page"});
 
-modules.exports = pageSchema;
+module.exports = pageSchema;

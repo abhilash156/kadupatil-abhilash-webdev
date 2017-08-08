@@ -1,86 +1,53 @@
 var mongoose = require("mongoose");
-var userSchema = require("user.schema.server");
+var userSchema = require("./user.schema.server");
 mongoose.Promise = require("q").Promise;
 
 var userModel = mongoose.model("UserModel", userSchema);
 
+require("../models.server");
+
+userModel.createUser = createUser;
+userModel.findUserById = findUserById;
+userModel.findUserByUsername = findUserByUsername;
+userModel.findUserByCredentials = findUserByCredentials;
+userModel.updateUser = updateUser;
+userModel.deleteUser = deleteUser;
+
+module.exports = userModel;
+
 function createUser(user) {
-    userModel.create(user, function (error, doc) {
-        if (error) {
-            return null;
-        } else {
-            return doc;
-        }
-    });
+    return userModel.create(user);
 }
 
 function findAllUsers() {
-    return userModel.find(function (error, documents) {
-        if (error) {
-            return null;
-        } else {
-            return documents;
-        }
-    });
+    return userModel.find();
 }
 
 function findUserById(userId) {
 
-    return userModel.findById(userId, function (error, documents) {
-        if (error) {
-            return null;
-        } else {
-            return documents;
-        }
-    });
+    return userModel.findById(userId);
 }
 
 function findUserByUsername(username) {
 
-    return userModel.findOne({"username": username}, function (error, documents) {
-        if (error) {
-            return null;
-        } else {
-            return documents;
-        }
-    });
+    return userModel.findOne({"username": username});
 }
 
 function findUserByCredentials(username, password) {
 
-    return userModel.findOne({"username": username, "password": password}, function (error, documents) {
-        if (error) {
-            return null;
-        } else {
-            return documents;
-        }
-    });
+    return userModel.findOne({"username": username, "password": password});
 }
 
 function updateUser(userId, user) {
 
-    return userModel.update({_id: userId}, {
-        $set: {
-            "password": user.password,
-            "firstName": user.firstName,
-            "lastName": user.lastName,
-            "email": user.email,
-            "phone": user.phone,
-            //websites: user.websites,
-            "dob": user.dob
-        }
-    });
+    delete user.username;
+    delete user.dateCreated;
+    return userModel.update({_id: userId}, {$set: user});
 }
 
 function deleteUser(userId) {
 
-    return userModel.remove({_id: userId}, function (error, documents) {
-        if (error) {
-            return null;
-        } else {
-            return documents;
-        }
-    });
+    return userModel.remove({_id: userId});
 }
 
 user = {
@@ -88,37 +55,37 @@ user = {
     "password": "alice",
     "firstName": "Alice",
     "lastName": "Wonder",
-    "email": "alice@wonderland.com",
-    "phone": 123456789
+    "email": "alice@wonderland.com"
 };
 
 user2 = {
-    "username": "af",
-    "password": "af",
-    "firstName": "Alafaice",
-    "lastName": "Wonder",
-    "email": "aliafafafce@wonderland.com",
-    "phone": 123455666
+    "username": "bob",
+    "password": "bob",
+    "firstName": "Bob",
+    "lastName": "Marley",
+    "email": "bob@wonderland.com"
 };
 
-//createUser(user2);
+user3 = {
+    "username": "charly",
+    "password": "charly",
+    "firstName": "Charly",
+    "lastName": "Garcia",
+    "email": "charly@wonderland.com"
+};
 
-findAllUsers()
-    .then(function (users) {
-        console.log(users);
-    });
+user4 = {
+    "username": "jannunzi",
+    "password": "jannunzi",
+    "firstName": "Jose",
+    "lastName": "Annunzi",
+    "email": "jannunzi@wonderland.com"
+};
 
-
-/*findUserById("5988ace4bb2b232eacbac94c")
-    .then(function (users) {
-        console.log(users);
-    });*/
-
-/*
-updateUser("5988ace4bb2b232eacbac94c", user)
-    .then(function (users) {
-        console.log(users);
-    });*/
-
-
-//deleteUser("5988c1541ddeec12005addec");
+user5 = {
+    "username": "desmond",
+    "password": "desmond",
+    "firstName": "Desmond",
+    "lastName": "Miles",
+    "email": "desmond@assassins.com"
+};
