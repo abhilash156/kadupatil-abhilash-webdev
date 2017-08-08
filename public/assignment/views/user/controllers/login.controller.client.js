@@ -4,6 +4,7 @@
         .controller("loginController", loginController);
 
     function loginController($location, userService) {
+        alert("haha");
         var model = this;
         model.login = login;
 

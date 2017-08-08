@@ -5,7 +5,7 @@ app.get("/api/test", findAllMessages);
 app.post("/api/test", createMessage);
 app.delete("/api/test/:id", deleteMessage);
 
-var connectionString = 'mongodb://52.15.198.199:27017/DeltaTest'; // for local
+var connectionString = 'mongodb://52.15.130.243:27017/DeltaTest'; // for local
 if (process.env.MLAB_USERNAME_WEBDEV) { // check if running remotely
     var username = process.env.MLAB_USERNAME_WEBDEV; // get from environment
     var password = process.env.MLAB_PASSWORD_WEBDEV;
