@@ -9,7 +9,7 @@ var userSchema = mongoose.Schema({
     phone: String,
     websites: [{type : mongoose.Schema.ObjectId, ref: "WebsiteModel"}],
     dob: Date,
-    created: {type: Date, default: Date.now}
+    dateCreated: {type: Date, default: Date.now}
 }, {collection: "user"});
 
 modules.exports = userSchema;
