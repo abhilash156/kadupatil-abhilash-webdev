@@ -17,7 +17,7 @@ function createWidget(request, response) {
     var pageId = request.params.pageId;
     var widget = request.body;
 
-    widgetModel.createPage(pageId, widget)
+    widgetModel.createWidget(pageId, widget)
         .then(function (newWidget) {
             response.send(newWidget);
         }, function (error) {

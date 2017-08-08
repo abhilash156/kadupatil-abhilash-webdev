@@ -3,6 +3,7 @@ var widgetSchema = require("./widget.schema.server");
 mongoose.Promise = require("q").Promise;
 
 var widgetModel = mongoose.model("WidgetModel", widgetSchema);
+var pageModel = require("../page/page.model.server");
 
 require("../models.server");
 
@@ -37,8 +38,13 @@ function updateWidget(widgetId, widget) {
 }
 
 function deleteWidget(widgetId) {
-
-    return widgetModel.remove({_id: widgetId});
+    return pageModel.findById(widgetId)
+        .then(function (widget) {
+            return widgetModel.remove({_id: widgetId})
+                .then(function () {
+                    return pageModel.removeWidget(widget._page, widgetId);
+                });
+        });
 }
 
 
@@ -88,7 +94,10 @@ var widgets = [
         "text": "Horizon Zero Dawn: Story Trailer | PS4"
     },
     {
-        "widgetType": "YOUTUBE", "_page": "598962c9264e4e1208564ce", "width": "100%", "url": "https://youtu.be/RRQDqurZJNk"
+        "widgetType": "YOUTUBE",
+        "_page": "598962c9264e4e1208564ce",
+        "width": "100%",
+        "url": "https://youtu.be/RRQDqurZJNk"
     }
 ];
 
