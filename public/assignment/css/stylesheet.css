@@ -46,6 +46,11 @@ body {
     color: inherit;
 }
 
+.glyphicon-search {
+    color: #000000;
+    padding: 0px;
+}
+
 .glyphicon-align-justify {
     color: #000000;
 }

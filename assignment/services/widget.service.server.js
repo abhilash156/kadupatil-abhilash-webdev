@@ -31,7 +31,6 @@ function findAllWidgetsForPage(request, response) {
     pageModel.findPageById(pageId).populate("widgets")
         .exec()
         .then(function (page) {
-            console.log(page.widgets);
             response.json(page.widgets);
         }, function (error) {
             response.sendStatus(404).error(error);
