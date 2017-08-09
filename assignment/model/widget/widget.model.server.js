@@ -18,10 +18,15 @@ module.exports = widgetModel;
 
 function createWidget(pageId, widget) {
     widget._page = pageId;
-    return widgetModel.create(widget);
+    return widgetModel.create(widget)
+        .then(function (newWidget) {
+            pageModel.addWidget(pageId, newWidget._id);
+            return newWidget;
+        });
 }
 
 function findAllWidgetsForPage(pageId) {
+
     return widgetModel.find({"_page": pageId});
 }
 
@@ -49,7 +54,13 @@ function deleteWidget(widgetId) {
 
 
 function reorderWidget(pageId, start, end) {
-
+    return pageModel.findPageById(pageId)
+        .then(function (page) {
+            widgets = page.widgets;
+            widgets.splice(end, 0, widgets.splice(start, 1)[0]);
+            page.widgets = widgets;
+            return page.save();
+        })
 }
 
 

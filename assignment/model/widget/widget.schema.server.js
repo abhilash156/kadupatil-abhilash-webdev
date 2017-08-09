@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 
 var widgetSchema = mongoose.Schema({
-    _page: [{type: mongoose.Schema.Types.ObjectId, ref: "PageModel"}],
+    _page: {type: mongoose.Schema.Types.ObjectId, ref: "PageModel"},
     widgetType: {type: String, enum: ['HEADING', 'IMAGE', 'YOUTUBE', 'HTML', 'INPUT']},
     name: String,
     text: String,

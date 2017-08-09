@@ -20,7 +20,7 @@ module.exports = pageModel;
 function addWidget(pageId, widgetId) {
     return pageModel.findById(pageId)
         .then(function (page) {
-            page.pages.push(widgetId);
+            page.widgets.push(widgetId);
             return page.save();
         })
 }
@@ -36,7 +36,10 @@ function removeWidget(pageId, widgetId) {
 
 function createPage(websiteId, page) {
     page._website = websiteId;
-    return pageModel.create(page);
+    return pageModel.create(page)
+        .then(function (newPage) {
+        return websiteModel.addPage(websiteId, newPage._id);
+    });
 }
 
 function findAllPagesForWebsite(websiteId) {
