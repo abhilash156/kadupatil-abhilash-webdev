@@ -100,11 +100,3 @@ user4 = {
     "lastName": "Annunzi",
     "email": "jannunzi@wonderland.com"
 };
-
-user5 = {
-    "username": "desmond",
-    "password": "desmond",
-    "firstName": "Desmond",
-    "lastName": "Miles",
-    "email": "desmond@assassins.com"
-};

@@ -22,7 +22,6 @@
         <div class="row">
             <div class="visible-lg visible-md col-lg-2 col-md-1"></div>
             <div class="col-xs-12 col-lg-8 col-md-10">
-                <!--<ng-include src="model.getWidgetUrlForType(model.widget.widgetType)"></ng-include>-->
                 <div ng-switch="model.widget.widgetType">
                     <div ng-switch-when="HEADING">
                         <ng-include src="'views/widget/templates/widget-heading-edit.view.client.html'">
