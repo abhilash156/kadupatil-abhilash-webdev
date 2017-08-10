@@ -14,7 +14,7 @@
         function login(user) {
             userService.findUserByCredentials(user.username, user.password)
                 .then(function (user) {
-                    if (user === null) {
+                    if (user === '') {
                         model.errorMessage = "Invalid Username or Password";
                     } else {
                         $location.url("user/" + user._id);

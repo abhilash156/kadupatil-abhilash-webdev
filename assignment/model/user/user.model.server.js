@@ -68,35 +68,3 @@ function deleteUser(userId) {
 
     return userModel.remove({_id: userId});
 }
-
-user = {
-    "username": "alice",
-    "password": "alice",
-    "firstName": "Alice",
-    "lastName": "Wonder",
-    "email": "alice@wonderland.com"
-};
-
-user2 = {
-    "username": "bob",
-    "password": "bob",
-    "firstName": "Bob",
-    "lastName": "Marley",
-    "email": "bob@wonderland.com"
-};
-
-user3 = {
-    "username": "charly",
-    "password": "charly",
-    "firstName": "Charly",
-    "lastName": "Garcia",
-    "email": "charly@wonderland.com"
-};
-
-user4 = {
-    "username": "jannunzi",
-    "password": "jannunzi",
-    "firstName": "Jose",
-    "lastName": "Annunzi",
-    "email": "jannunzi@wonderland.com"
-};
