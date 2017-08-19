@@ -1,32 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-    <meta charset="UTF-8">
-    <title>Web Dev Course Home Page</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
-    <link rel="icon" type="image/png" sizes="96x96" href="assignment/images/favicon-96x96.png">
-    <link href="https://fonts.googleapis.com/css?family=Dosis:300" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="assignment/css/homestyle.css" rel="stylesheet">
+
+   <!--- Basic Page Needs
+   ================================================== -->
+   <meta charset="utf-8">
+	<title>Ceevee - Free Responsive HTML5/CSS3 Template</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+   <!-- Mobile Specific Metas
+   ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+    ================================================== -->
+   <link rel="stylesheet" href="homepage/css/default.css">
+	<link rel="stylesheet" href="homepage/css/layout.css">
+   <link rel="stylesheet" href="homepage/css/media-queries.css">
+   <link rel="stylesheet" href="homepage/css/magnific-popup.css">
+
+   <!-- Script
+   ================================================== -->
+	<script src="homepage/js/modernizr.js"></script>
+
+   <!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="homepage/favicon.png" >
+
 </head>
+
 <body>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="visible-lg visible-md col-lg-3 col-md-2"></div>
-        <div class="col-xs-12 col-lg-6 col-md-10">
-            <p class="name-tag">ABHILASH KADUPATIL</p>
-            <a class="icon" href="assignment/" target="_blank"><i class="icon fa fa-code" aria-hidden="true"></i></a>
-            <a class="icon" href="https://github.com/abhilash156/kadupatil-abhilash-webdev" target="_blank"><i
-                class="icon fa fa-github" aria-hidden="true"></i></a>
-            <a class="icon" href="test/index.html" target="_blank"><i class="icon fa fa-wrench" aria-hidden="true"></i></a>
-            <a class="icon" href="project/" target="_blank"><i class="icon fa fa-bug" aria-hidden="true"></i></a>
-        </div>
-        <div class="visible-lg visible-md col-lg-3 col-md-2"></div>
-    </div>
-</div>
+   <!-- Header
+   ================================================== -->
+   <header id="home">
+
+      <nav id="nav-wrap">
+
+         <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
+	      <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+
+         <ul id="nav" class="nav">
+            <li class="current"><a class="smoothscroll" href="#home">Home</a></li>
+            <li><a class="smoothscroll" href="#about">About</a></li>
+         </ul> <!-- end #nav -->
+
+      </nav> <!-- end #nav-wrap -->
+
+      <div class="row banner">
+         <div class="banner-text">
+            <h1 class="responsive-headline">I'm Abhilash Kadupatil.</h1>
+            <hr />
+            <ul class="social">
+               <li><a href="https://github.com/abhilash156/kadupatil-abhilash-webdev"><i class="fa fa-github"></i>  Github</a></li>
+               <li><a href="https://kadupatil-abhilash-webdev.herokuapp.com/assignment/"><i class="fa fa-code"></i>  Assignment</a></li>
+               <li><a href="http://gameon-project.herokuapp.com/"><i class="fa fa-gamepad"></i>  Project</a></li>
+            </ul>
+         </div>
+      </div>
+
+      <p class="scrolldown">
+         <a class="smoothscroll" href="#about"><i class="icon-down-circle"></i></a>
+      </p>
+
+   </header> <!-- Header End -->
+
+
+   <!-- About Section
+   ================================================== -->
+   <section id="about">
+
+      <div class="row">
+
+         <div class="three columns">
+
+            <img class="profile-pic" src="homepage/images/profilepic.jpg" alt="" />
+
+         </div>
+
+         <div class="nine columns main-col">
+
+            <h2>About Me</h2>
+
+            <p></p>
+
+            <div class="row">
+
+               <div class="columns contact-details">
+
+                  <h2>Contact Details</h2>
+                  <p class="address">
+						   <span>Abhilash Doe</span><br>
+						   <span>17B Smith Street<br>
+						         Boston, MA 02120 US
+                     </span><br>
+						   <span>(857) 334-9201</span><br>
+                     <span>abhilash.kadupatil@gmail.com</span>
+					   </p>
+
+               </div>
+
+               <div class="columns download">
+                  <p>
+                     <a href="#" class="button"><i class="fa fa-download"></i>Download Resume</a>
+                  </p>
+               </div>
+
+            </div> <!-- end row -->
+
+         </div> <!-- end .main-col -->
+
+      </div>
+
+   </section> <!-- About Section End-->
+ 
+   <!-- footer
+   ================================================== -->
+   <footer>
+
+      <div class="row">
+
+         <div class="twelve columns">
+
+            <ul class="social-links">
+               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+               <li><a href="#"><i class="fa fa-github"></i></a></li>
+               <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+
+         </div>
+
+         <div id="go-top"><a class="smoothscroll" title="Back to Top" href="#home"><i class="icon-up-open"></i></a></div>
+
+      </div>
+
+   </footer> <!-- Footer End-->
+
+   <!-- Java Script
+   ================================================== -->
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script>window.jQuery || document.write('<script src="homepage/js/jquery-1.10.2.min.js"><\/script>')</script>
+   <script type="text/javascript" src="homepage/js/jquery-migrate-1.2.1.min.js"></script>
+
+   <script src="homepage/js/jquery.flexslider.js"></script>
+   <script src="homepage/js/waypoints.js"></script>
+   <script src="homepage/js/jquery.fittext.js"></script>
+   <script src="homepage/js/magnific-popup.js"></script>
+   <script src="homepage/js/init.js"></script>
 
 </body>
+
 </html>
